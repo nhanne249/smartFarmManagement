@@ -43,9 +43,9 @@ The backend should now be running at `http://localhost:xxxx`.
 The frontend should now be running at `http://localhost:5173` (or another port depending on your setup).
 ### Usage
 Once both the frontend and backend are running, you can:
-- Sign up and log in to your account
-- Add books to your cart and complete the purchase
-- Admin can log in to the admin panel to manage users, books, and orders
+- 1
+- 2
+- 3
 ### Technologies Used
 - __Backend:__ .
 - __Frontend:__ Vite,React, Axios, AntD, TailwindCss, SCSS/SASS, react-router.
