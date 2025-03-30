@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Layout, Menu } from "antd";
 import {
     DashboardOutlined, SettingOutlined
 } from '@ant-design/icons';
 import { useLocation, useNavigate } from "react-router";
+import { MyContext } from '../../../context/MyContext';
 
 const { Sider } = Layout;
 
 const items = [
     {
-        key: 'dashboard',
+        key: '',
         icon: <DashboardOutlined />,
         label: 'Dashboard',
     },
@@ -20,26 +21,16 @@ const items = [
     }
 ];
 
-const siderStyle = {
-    overflow: 'auto',
-    height: '100vh',
-    position: 'sticky',
-    insetInlineStart: 0,
-    top: 0,
-    bottom: 0,
-    scrollbarWidth: 'thin',
-    scrollbarGutter: 'stable',
-};
-
 const SiderLayout = () => {
+
+    const { isColapsed } = useContext(MyContext);
 
     const location = useLocation();
     const navigate = useNavigate();
 
     return (
-        <Sider style={siderStyle} collapsible={true}>
-            <div className="demo-logo-vertical" />
-            <Menu theme="dark" mode="inline" items={items} onClick={e => navigate(e.key)} defaultSelectedKeys={location.pathname.split('/')[1] !== "" ? location.pathname.split('/')[1] : "dashboard"} />
+        <Sider theme='light' className='h-screen' collapsed={isColapsed}>
+            <Menu className='border-none' theme="light" mode="inline" items={items} onClick={e => navigate(e.key)} defaultSelectedKeys={location.pathname.split('/')[1] !== "" ? location.pathname.split('/')[1] : "dashboard"} />
         </Sider>
     )
 }

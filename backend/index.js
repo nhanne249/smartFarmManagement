@@ -11,5 +11,5 @@ const route = require("./src/route/index")
 route(app)
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`App now run on: http://localhost:${port}`)
 })

@@ -1,17 +1,21 @@
-import MainLayout from "../../layouts/mainlayout"
-import Dashboard from "../../pages/dashboard"
-import Settings from "../../pages/settings"
+import { createBrowserRouter } from "react-router";
+import MainLayout from "../../layouts/mainlayout";
+import Dashboard from "../../pages/dashboard";
+import Settings from "../../pages/settings";
 
-export const mainPageRoutes = {
-    element: <MainLayout />,
-    children: [
-        {
-            path: 'dashboard',
-            element: <Dashboard />
-        },
-        {
-            path: 'settings',
-            element: <Settings />
-        },
-    ]
-}
+export const routes = createBrowserRouter([
+    {
+        element: <MainLayout />,
+        path: "/",
+        children: [
+            {
+                index: true,
+                element: <Dashboard />,
+            },
+            {
+                path: "settings",
+                element: <Settings />,
+            },
+        ],
+    },
+]);
