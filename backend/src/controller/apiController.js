@@ -31,9 +31,6 @@ const api = {
             jsonString = [daysReport, total]
             res.json(jsonString)
         }
-    },
-    api_call_iot: async (req, res) => {
-        send_Port.publish("iot/nodejs-python", JSON.stringify("test"))
     }
 }
 
