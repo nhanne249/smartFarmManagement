@@ -1,12 +1,18 @@
-const DayReport = require("../model/day");
-const { send_Port } = require("../mqtt/index")
+require('dotenv').config()
+const DayReport = require("../model/day")
+const client = require("../mqtt/index")
+
+const bbc_pump = process.env.BBC_FAN
+const BBC_PUMP = process.env.BBC_TEMP
 
 const send = {
-    api_send: async (req, res) => {
-        let message = JSON.stringify({ temperature: Math.random() * 50 });
-        console.log(`Gửi tin nhắn: ${message.toString()}`);
-        send_Port.publish('iot/nodejs-python', message);
-        res.redirect("/")
+    api_fan_send: async (req, res) => {
+        data = JSON.stringify(parseInt(req.query.data))
+        client.publish(bbc_fan, data)
+    },
+    api_pmup_send: async (req, res) => {
+        data = JSON.stringify(parseInt(req.query.data))
+        client.publish(bbc_pump, data)
     }
 }
 
