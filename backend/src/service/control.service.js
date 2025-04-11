@@ -3,7 +3,6 @@ const DayReport = require("../model/day")
 const client = require("../mqtt/index")
 
 const bbc_pump = process.env.BBC_FAN
-const BBC_PUMP = process.env.BBC_TEMP
 
 const send = {
     api_fan_send: async (req, res) => {
