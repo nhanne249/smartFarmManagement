@@ -40,7 +40,7 @@
           {
             "name": "from",
             "in": "query",
-            "description": "Start date for filtering (YYYY-MM-DD)",
+            "description": "Start date for filtering (YYYY-MM-DD) - optional",
             "required": false,
             "schema": {
               "type": "string",
@@ -50,7 +50,7 @@
           {
             "name": "to",
             "in": "query",
-            "description": "End date for filtering (YYYY-MM-DD)",
+            "description": "End date for filtering (YYYY-MM-DD) - optional",
             "required": false,
             "schema": {
               "type": "string",
@@ -84,7 +84,7 @@
         }
       }
     },
-    "/send/fan": {
+    "/control/fan": {
       "patch": {
         "summary": "Control fan",
         "description": "Turn the fan on or off.",
@@ -110,7 +110,7 @@
         }
       }
     },
-    "/send/pump": {
+    "/control/pump": {
       "patch": {
         "summary": "Control pump",
         "description": "Turn the pump on or off.",

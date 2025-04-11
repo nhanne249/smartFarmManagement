@@ -1,7 +1,7 @@
-const send = require("./send.controller");
+const send = require("./equipment.controller");
 const api = require("./api.controller");
 
 module.exports = (app) => {
     app.use("/api", api)
-    app.use("/api/send", send)
+    app.use("/api/control", send)
 }
