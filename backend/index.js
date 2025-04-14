@@ -1,8 +1,6 @@
 const express = require('express')
 const app = express()
 const port = 3000
-// const { send_Port, listen } = require("./src/mqtt/index")
-// listen()
 
 const database = require("./src/config/index")
 database.connect()
