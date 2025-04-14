@@ -1,7 +1,8 @@
 const DayReport = require("../model/day");
+const axios = require('axios')
 
-const api = {
-    api_analysit: async (req, res) => {
+const data = {
+    analysit: async (req, res) => {
         try {
             const items = parseInt(req.query.items) || 10;
             const page = parseInt(req.query.page) || 1;
@@ -36,6 +37,23 @@ const api = {
             res.status(500).json({ error: error });
         }
     },
+    getStatus: async (req, res) => {
+        try {
+            let feed = process.env.BBC_FAN
+            if (req.query.value == "pump") feed = process.env.BBC_PUMP
+            let url = `https://io.adafruit.com/api/v2/${feed}/data/last`
+            let result = await axios.get(url, {
+                headers: {
+                    'X-AIO-Key': process.env.ADAFRUIT_IO_KEY
+                }
+            })
+            let val = result.data.value
+            res.json({ value: val })
+        } catch (e) {
+            console.log(e.response)
+            res.status(500).json({ message: "Lỗi khi lấy được dữ liệu!!!" })
+        }
+    },
 };
 
-module.exports = api;
+module.exports = data;

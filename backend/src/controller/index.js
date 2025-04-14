@@ -1,7 +1,8 @@
-const send = require("./equipment.controller");
-const api = require("./api.controller");
+const equipment = require("./equipment.controller");
+const data = require("./data.controller");
+// const 
 
 module.exports = (app) => {
-    app.use("/api", api)
-    app.use("/api/control", send)
+    app.use("/api", data)
+    app.use("/api/control", equipment)
 }

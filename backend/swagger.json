@@ -135,6 +135,28 @@
           }
         }
       }
+    },
+    "/equipment-status": {
+      "get": {
+        "summary": "Get equipment status",
+        "description": "Retrieve the current status of all equipment.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "fan": "ON",
+                  "pump": "OFF"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
     }
   }
 }
