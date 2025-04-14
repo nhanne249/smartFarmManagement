@@ -17,8 +17,6 @@ const Dashboard = () => {
         });
 
         client.on('message', (topic, message) => {
-            console.log(topic)
-            console.log(message)
             const data = JSON.parse(message.toString());
             if (topic === import.meta.env.VITE_BBC_TEMP) {
                 setTemperature(data);

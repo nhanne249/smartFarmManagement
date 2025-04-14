@@ -1,0 +1,140 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Smart Farm Management API",
+    "version": "1.0.0",
+    "description": "API documentation for the Smart Farm Management system."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/analyst": {
+      "get": {
+        "summary": "Get analyst data",
+        "description": "Retrieve data for analysis, optionally filtered by date range.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "items",
+            "in": "query",
+            "description": "Number of items per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date for filtering (YYYY-MM-DD) - optional",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date for filtering (YYYY-MM-DD) - optional",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "totalPages": 5,
+                  "totalItems": 50,
+                  "data": [
+                    {
+                      "day": "2025-04-12",
+                      "data": [
+                        { "temperature": 25, "humidity": 60 }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/control/fan": {
+      "patch": {
+        "summary": "Control fan",
+        "description": "Turn the fan on or off.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "query",
+            "description": "Fan status (1 for ON, 0 for OFF)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "enum": [0, 1]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fan status updated successfully"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/control/pump": {
+      "patch": {
+        "summary": "Control pump",
+        "description": "Turn the pump on or off.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "query",
+            "description": "Pump status (1 for ON, 0 for OFF)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "enum": [0, 1]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pump status updated successfully"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  }
+}

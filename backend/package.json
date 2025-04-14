@@ -4,18 +4,24 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect index.js",
+    "dev": "nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^1.8.4",
     "child_process": "^1.0.2",
+=======
+    "cors": "^2.8.5",
+>>>>>>> 3fa85a0e50cfae3cf0d10868d502632b92b4f03d
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.12.1",
     "mqtt": "^5.10.4",
+    "swagger-ui-dist": "^5.20.8",
     "ws": "^8.18.1"
   },
   "devDependencies": {
