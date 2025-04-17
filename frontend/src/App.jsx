@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import './App.css'
 import { RouterProvider } from "react-router";
 import { StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
 import { routes } from './configs/routes';
 import { MyContext } from './context/MyContext';
+import './App.css'
 
 function App() {
   const [isColapsed, setIsColapsed] = useState(false)

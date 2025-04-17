@@ -48,7 +48,7 @@ const data = {
                 }
             })
             let val = result.data.value
-            res.json({ value: val })
+            res.status(200).json({ value: val })
         } catch (e) {
             console.log(e.response)
             res.status(500).json({ message: "Lỗi khi lấy được dữ liệu!!!" })

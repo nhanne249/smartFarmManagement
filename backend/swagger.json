@@ -139,18 +139,32 @@
     "/equipment-status": {
       "get": {
         "summary": "Get equipment status",
-        "description": "Retrieve the current status of all equipment.",
+        "description": "Retrieve the current status of a specific equipment (fan or pump).",
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Specify the equipment to retrieve status for (e.g., 'fan' or 'pump').",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["fan", "pump"]
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
             "content": {
               "application/json": {
                 "example": {
-                  "fan": "ON",
-                  "pump": "OFF"
+                  "value": "ON"
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request - Invalid or missing query parameter"
           },
           "500": {
             "description": "Internal server error"

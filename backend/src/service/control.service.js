@@ -12,6 +12,7 @@ const control = {
         }
         data = JSON.stringify(parseInt(data))
         client.publish(bbc_fan, data)
+        res.status(200).json({ message: "Fan status updated successfully", status: data });
     },
     pump: async (req, res) => {
         data = 0
@@ -19,6 +20,7 @@ const control = {
             data = 1
         }
         client.publish(bbc_pump, data)
+        res.status(200).json({ message: "Pump status updated successfully", status: data });
     }
 }
 

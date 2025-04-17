@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import { Layout, Menu } from "antd";
-import {
-    DashboardOutlined, SettingOutlined
-} from '@ant-design/icons';
+import {DashboardOutlined, SettingOutlined,TableOutlined} from '@ant-design/icons';
 import { useLocation, useNavigate } from "react-router";
 import { MyContext } from '../../../context/MyContext';
 
@@ -18,7 +16,12 @@ const items = [
         key: 'settings',
         icon: <SettingOutlined />,
         label: 'Settings',
-    }
+    },
+    {
+        key: 'data',
+        icon: <TableOutlined />,
+        label: 'Data',
+    },
 ];
 
 const SiderLayout = () => {
