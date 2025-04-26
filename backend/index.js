@@ -1,15 +1,21 @@
-const express = require('express')
-const pathToSwaggerUi = require('swagger-ui-dist').absolutePath()
-const cors = require("cors");
-const app = express()
-const port = 3000
-// const { send_Port, listen } = require("./src/mqtt/index")
-// listen()
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import swaggerUiDist from 'swagger-ui-dist';
+import cors from 'cors';
+import database from './src/config/index.js';
+import route from './src/controller/index.js';
 
-const database = require("./src/config/index")
-database.connect()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.use('', express.static(pathToSwaggerUi))
+const app = express();
+const port = 3000;
+const pathToSwaggerUi = swaggerUiDist.absolutePath();
+
+database.connect();
+
+app.use('', express.static(pathToSwaggerUi));
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -17,7 +23,7 @@ app.use(cors({
 }));
 
 app.get('/swagger.json', (req, res) => {
-    res.sendFile(__dirname + '/swagger.json');
+    res.sendFile(path.join(__dirname, 'swagger.json'));
 });
 
 app.get('/docs', (req, res) => {
@@ -48,10 +54,9 @@ app.get('/docs', (req, res) => {
     `);
 });
 
-const route = require("./src/controller/index")
-route(app)
+route(app);
 
 app.listen(port, () => {
-    console.log(`App now run on: http://localhost:${port}`)
-    console.log(`Run api on: http://localhost:${port}/docs`)
-})
+    console.log(`App now run on: http://localhost:${port}`);
+    console.log(`Run api on: http://localhost:${port}/docs`);
+});

@@ -1,8 +1,9 @@
-const express = require("express");
+import express from "express";
+import control from "../service/control.service.js";
+
 const route = express.Router();
-const control = require("../service/control.service");
 
 route.patch('/fan', control.fan);
 route.patch('/pump', control.pump);
 
-module.exports = route;
+export default route;

@@ -1,27 +1,28 @@
-require('dotenv').config()
-const client = require("../mqtt/index")
+import dotenv from 'dotenv';
+dotenv.config();
+import client from "../mqtt/index.js";
 
-const bbc_fan = process.env.BBC_FAN
-const bbc_pump = process.env.BBC_PUMP
+const bbc_fan = process.env.BBC_FAN;
+const bbc_pump = process.env.BBC_PUMP;
 
 const control = {
     fan: async (req, res) => {
-        data = 0
+        let data = 0;
         if (req.query.data == "true") {
-            data = 1
+            data = 1;
         }
-        data = JSON.stringify(parseInt(data))
-        client.publish(bbc_fan, data)
+        data = JSON.stringify(parseInt(data));
+        client.publish(bbc_fan, data);
         res.status(200).json({ message: "Fan status updated successfully", status: data });
     },
     pump: async (req, res) => {
-        data = 0
+        let data = 0;
         if (req.query.data == "true") {
-            data = 1
+            data = 1;
         }
-        client.publish(bbc_pump, data)
+        client.publish(bbc_pump, data);
         res.status(200).json({ message: "Pump status updated successfully", status: data });
     }
 }
 
-module.exports = control;
+export default control;

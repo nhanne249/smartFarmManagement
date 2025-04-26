@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose";
+
 const Schema = mongoose.Schema;
 
 const DayReport = new Schema({
@@ -6,4 +7,4 @@ const DayReport = new Schema({
     data: [{ temperature: Number, humidity: Number }]
 })
 
-module.exports = mongoose.model('DayReport', DayReport);
+export default mongoose.model('DayReport', DayReport);

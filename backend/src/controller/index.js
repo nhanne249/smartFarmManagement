@@ -1,8 +1,7 @@
-const equipment = require("./equipment.controller");
-const data = require("./data.controller");
-// const 
+import equipment from "./equipment.controller.js";
+import data from "./data.controller.js";
 
-module.exports = (app) => {
+export default (app) => {
     app.use("/api", data)
     app.use("/api/control", equipment)
 }
