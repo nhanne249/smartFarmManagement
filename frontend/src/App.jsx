@@ -9,7 +9,7 @@ import './App.css'
 function App() {
   const [isColapsed, setIsColapsed] = useState(false)
   return (
-    <StyleProvider layer>
+    <StyleProvider layer hashPriority="high">
       <ConfigProvider
         theme={{
           components: {

@@ -19,3 +19,11 @@ export const controlFan = (status) => {
 export const controlPump = (status) => {
     return axios.patch(`/control/pump?data=${status}`,);
 }
+
+export const assistant = (input) => {
+    return axios.post(`/agent`, JSON.stringify({ message: { text: input } }), {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+}

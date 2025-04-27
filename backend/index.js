@@ -5,6 +5,11 @@ import swaggerUiDist from 'swagger-ui-dist';
 import cors from 'cors';
 import database from './src/config/index.js';
 import route from './src/controller/index.js';
+//MCP server
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
+import { z } from "zod";
+/////////////////////////////////////////////////////////////////////////////////
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

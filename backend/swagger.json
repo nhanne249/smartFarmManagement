@@ -171,6 +171,82 @@
           }
         }
       }
+    },
+    "/mcp/sse": {
+      "get": {
+        "summary": "Get latest equipment data (fan & pump)",
+        "description": "Retrieve the latest data for fan and pump from Adafruit via MCP.",
+        "responses": {
+          "200": {
+            "description": "Successful response with latest equipment data",
+            "content": {
+              "application/json": {
+                "example": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "fan": {
+                          "id": "123456",
+                          "value": "1",
+                          "created_at": "2025-04-26T10:00:00Z"
+                        },
+                        "pump": {
+                          "id": "654321",
+                          "value": "0",
+                          "created_at": "2025-04-26T10:00:00Z"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/agent": {
+      "post": {
+        "summary": "AI Smart Farm Agent",
+        "description": "Phân tích yêu cầu người dùng và sử dụng AI để chọn công cụ phù hợp.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "text": { "type": "string" }
+                    },
+                    "required": ["text"]
+                  }
+                },
+                "required": ["message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Thành công",
+            "content": {
+              "application/json": {
+                "example": { "error": null, "data": "ok" }
+              }
+            }
+          },
+          "400": {
+            "description": "Lỗi đầu vào hoặc xử lý"
+          }
+        }
+      }
     }
   }
 }

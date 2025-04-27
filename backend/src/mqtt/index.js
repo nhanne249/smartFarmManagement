@@ -1,10 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import mqtt from 'mqtt';
-import DayReport from "../model/day.js";
-
-const send_Port = mqtt.connect('mqtt://localhost');
-const listen_Port = mqtt.connect('mqtt://localhost');
 
 const ADAFRUIT_IO_USERNAME = process.env.ADAFRUIT_IO_USERNAME;
 const ADAFRUIT_IO_KEY = process.env.ADAFRUIT_IO_KEY;

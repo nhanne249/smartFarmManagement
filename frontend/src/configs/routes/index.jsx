@@ -3,6 +3,7 @@ import MainLayout from "../../layouts/mainlayout";
 import Dashboard from "../../pages/dashboard";
 import Settings from "../../pages/settings";
 import DataPage from "../../pages/data";
+import AssistantPage from "../../pages/assistant";
 
 export const routes = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const routes = createBrowserRouter([
             {
                 path: "data",
                 element: <DataPage />,
+            },
+            {
+                path: "assistant",
+                element: <AssistantPage />,
             },
         ],
     },
