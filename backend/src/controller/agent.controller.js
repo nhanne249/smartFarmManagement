@@ -64,7 +64,7 @@ AgentController.post("", async (req, res) => {
                     name: dataResponse.functionCall.name,
                     arguments: dataResponse.functionCall.args,
                 });
-                // Gọi AI lần 2 để response data phù hợp
+                // Gọi AI lần 2 để response phù hợp
                 const finalResponse = await ai.models.generateContent({
                     model: 'gemini-2.0-flash',
                     contents: {
