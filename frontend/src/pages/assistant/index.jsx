@@ -8,7 +8,16 @@ const AssistantPage = () => {
     const [messages, setMessages] = useState([
         {
             sender: "Assistant",
-            message: "Hello! I'm your farm assistant. How can I help you today?"
+            message: `Hello! I'm your farm assistant. How can I help you today?
+
+I can assist you with a variety of tasks to help manage your farm efficiently, including:
+
+- **Updating the current weather** so you can plan your farming activities accordingly.  
+- **Checking the current status values** of your farm environment and devices.  
+- **Adjusting the fan settings** to regulate air circulation.  
+- **Changing the pump settings** to control irrigation.  
+- **Modifying both the fan and pump values simultaneously** for optimal environmental control.
+            `,
         }
     ]);
     const [input, setInput] = useState("");
@@ -27,7 +36,7 @@ const AssistantPage = () => {
         setInput("");
         try {
             setLoading(true);
-            const response = await assistant(input);
+            const response = await assistant(input,messages);
             if (response.data) {
                 const assistantMessage = {
                     id: Date.now() + 1,

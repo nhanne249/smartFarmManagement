@@ -20,8 +20,8 @@ export const controlPump = (value) => {
     return axios.patch(`/control/pump?data=${value}`,);
 }
 
-export const assistant = (input) => {
-    return axios.post(`/agent`, JSON.stringify({ message: { text: input } }), {
+export const assistant = (input, context) => {
+    return axios.post(`/agent`, JSON.stringify({ message: { input: input, context: context } }), {
         headers: {
             'Content-Type': 'application/json',
         },
