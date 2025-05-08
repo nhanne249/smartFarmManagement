@@ -14,8 +14,8 @@ I can assist you with a variety of tasks to help manage your farm efficiently, i
 
 - **Updating the current weather** so you can plan your farming activities accordingly.  
 - **Checking the current status values** of your farm environment and devices.  
-- **Adjusting the fan settings** to regulate air circulation.  
-- **Changing the pump settings** to control irrigation.  
+- **Changing the fan value** to regulate air circulation.  
+- **Changing the pump value** to control irrigation.  
 - **Modifying both the fan and pump values simultaneously** for optimal environmental control.
             `,
         }
