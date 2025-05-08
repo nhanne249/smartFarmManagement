@@ -3,7 +3,6 @@ import express from 'express';
 import axios from 'axios';
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { SSEClientTransport } from "@modelcontextprotocol/sdk/client/sse.js";
-import { z } from "zod";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
@@ -86,6 +85,7 @@ AgentController.post("", async (req, res) => {
             res.status(200).json({ error: null, data: responseResult });
         }
         catch (error) {
+            console.error("Error: ", error);
             res.status(400).json({ error: error, data: null });;
         }
     }

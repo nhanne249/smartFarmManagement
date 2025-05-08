@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import { RouterProvider } from "react-router";
 import { StyleProvider } from '@ant-design/cssinjs';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, notification } from 'antd';
 import { routes } from './configs/routes';
 import { MyContext } from './context/MyContext';
 import './App.css'
 
 function App() {
   const [isColapsed, setIsColapsed] = useState(false)
+  const [api,contextHolder] = notification.useNotification({
+    placement: 'topRight',
+    duration: 2,
+    maxCount: 3,
+  });
   return (
     <StyleProvider layer hashPriority="high">
       <ConfigProvider
@@ -19,8 +24,9 @@ function App() {
             },
           },
         }}
-      >
-        <MyContext.Provider value={{ isColapsed, setIsColapsed }}>
+        >
+        <MyContext.Provider value={{ isColapsed, setIsColapsed,api }}>
+        {contextHolder}
           <RouterProvider router={routes} />
         </MyContext.Provider>
       </ConfigProvider>

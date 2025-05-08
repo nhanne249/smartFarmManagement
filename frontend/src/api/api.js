@@ -12,12 +12,12 @@ export const getPumpStatus = () => {
     return axios.get('/equipment-status?value=pump');
 }
 
-export const controlFan = (status) => {
-    return axios.patch(`/control/fan?data=${status}`,);
+export const controlFan = (value) => {
+    return axios.patch(`/control/fan?data=${value}`,);
 }
 
-export const controlPump = (status) => {
-    return axios.patch(`/control/pump?data=${status}`,);
+export const controlPump = (value) => {
+    return axios.patch(`/control/pump?data=${value}`,);
 }
 
 export const assistant = (input) => {
