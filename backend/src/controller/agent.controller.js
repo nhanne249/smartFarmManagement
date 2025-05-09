@@ -42,7 +42,7 @@ AgentController.post("", async (req, res) => {
                     text: `
                         You are a Smart Farm Manager AI assistant. Your task is to analyze the input of the user and directly choose the most suitable tool to perform the task if the input matches the description of any tool. If no tool is suitable, respond normally in Vietnamese. Do not ask for further clarification if a tool can be used; proceed with the tool immediately.
                         The input is: ${message.input}
-                        The present context is: ${message.context}
+                        The present context is: ${JSON.stringify(message.context)}
                     `,
                 }]
             },
@@ -71,7 +71,7 @@ AgentController.post("", async (req, res) => {
                     parts: [{
                         text: `
                             You are a Smart Farm Manager AI assistant. Your task is to analyze the input of the user then you will use suitable data to response as easy to understand as possible, the answer you response must have full of detail if the keyword data has value and the answer is need for farm.
-                            Note: Your answer must use Vietnamese language, easy to understand and give some advice if data return can affect the farm.
+                            Note: Your answer must use Vietnamese language, easy to understand and give some advice if data return can affect the farm. If the data is notification about changing value of any equipment, just response normally in Vietnamese.
                             The input is: ${message.input}
                             The data is :  ${result.content[0].text}
                             The present context is: ${message.context}
